@@ -12,7 +12,17 @@
 */
 
 
-Route::get('/', array(
+Route::get('/product', array(
 	'as'    => 'product.index',
 	'uses'   => 'ProductController@index',
+	));
+
+Route::get('/', array(
+	'as'    => 'promotion.index',
+	'uses'   => 'PromotionController@index',
+	));
+
+Route::get('/promotion/{id}/show', array(
+	'as'    => 'promotion.show',
+	'uses'   => 'PromotionController@show',
 	));

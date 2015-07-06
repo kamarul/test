@@ -49,7 +49,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#about">Hot Deal</a>
+                        <a href="{{ route('promotion.index') }}">Hot Deal</a>
                     </li>
                     <li>
                         <a href="#services">My Favorite</a>
@@ -67,7 +67,7 @@
         <!-- /.container -->
     </nav>
 
-
+    ::before
     <div class="content-section-a">
        <div class="container">
         @section('content')

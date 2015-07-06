@@ -70,7 +70,31 @@ class BasicDataSeeder extends Seeder
         $endDate =  date('Y-m-d' , mktime(0, 0, 0, date("m")  , date("d")+5, date("Y")));
 
         $promotions =[
-            ['id' => 1,'start' => $startDate,'end' => $endDate,'price_promo'=>31.30,'price_normal'=>44.90,'saving'=>13.66,'product_id' => 1,'shop_id' => 1],
+            ['start' => $startDate,'end' => $endDate,'price_promo'=>31.30,'price_normal'=>44.90,'saving'=>13.66,'product_id' => 1,'shop_id' => 1],
+            ['start' => $startDate,'end' => $endDate,'price_promo'=>31.30,'price_normal'=>44.90,'saving'=>13.66,'product_id' => 2,'shop_id' => 2],
+            ['start' => $startDate,'end' => $endDate,'price_promo'=>31.30,'price_normal'=>44.90,'saving'=>13.66,'product_id' => 3,'shop_id' => 1],
+        ];
+        DB::table('promotions')->insert($promotions);
+
+        //Product Promotion
+        $startDate = date('Y-m-d' , mktime(0, 0, 0, date("m")  , date("d"), date("Y")));
+        $endDate =  date('Y-m-d' , mktime(0, 0, 0, date("m")  , date("d")+5, date("Y")));
+
+        $promotions =[
+            ['start' => $startDate,'end' => $endDate,'price_promo'=>31.30,'price_normal'=>44.90,'saving'=>13.66,'product_id' => 4,'shop_id' => 4],
+            ['start' => $startDate,'end' => $endDate,'price_promo'=>31.30,'price_normal'=>44.90,'saving'=>13.66,'product_id' => 5,'shop_id' => 2],
+            ['start' => $startDate,'end' => $endDate,'price_promo'=>31.30,'price_normal'=>44.90,'saving'=>13.66,'product_id' => 6,'shop_id' => 4],
+        ];
+        DB::table('promotions')->insert($promotions);
+
+        //Product Promotion
+        $startDate = date('Y-m-d' , mktime(0, 0, 0, date("m")  , date("d")-4, date("Y")));
+        $endDate =  date('Y-m-d' , mktime(0, 0, 0, date("m")  , date("d")-1, date("Y")));
+
+        $promotions =[
+            ['start' => $startDate,'end' => $endDate,'price_promo'=>31.30,'price_normal'=>44.90,'saving'=>13.66,'product_id' => 4,'shop_id' => 3],
+            ['start' => $startDate,'end' => $endDate,'price_promo'=>31.30,'price_normal'=>44.90,'saving'=>13.66,'product_id' => 5,'shop_id' => 3],
+            ['start' => $startDate,'end' => $endDate,'price_promo'=>31.30,'price_normal'=>44.90,'saving'=>13.66,'product_id' => 6,'shop_id' => 3],
         ];
         DB::table('promotions')->insert($promotions);
     }
