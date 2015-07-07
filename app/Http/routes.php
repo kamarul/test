@@ -26,3 +26,13 @@ Route::get('/promotion/{id}/show', array(
 	'as'    => 'promotion.show',
 	'uses'   => 'PromotionController@show',
 	));
+
+Route::get('/shop', array(
+	'as'    => 'shop.index',
+	'uses'   => 'ShopController@index',
+	));
+
+Route::get('/shop/{id}/show', array(
+	'as'    => 'shop.show',
+	'uses'   => 'ShopController@show',
+	));

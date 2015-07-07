@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Shop;
+
 class ShopController extends Controller
 {
     /**
@@ -16,7 +18,8 @@ class ShopController extends Controller
      */
     public function index()
     {
-        //
+        $shops = Shop::all();
+        return view('shop.index',compact('shops'));
     }
 
     /**
