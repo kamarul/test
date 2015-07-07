@@ -20,13 +20,14 @@ class PromotionController extends Controller
      */
     public function index()
     {   
-        // dd(Input::all());
         $today = date('Y-m-d');
         $promotions = Promotion::with('Product','Shop')->where('start','<=',$today)->where('end','>=',$today);
 
         //filter by category
         if (Input::has('category')) {
-            $promotions->where('category_id','=',Input::get('category'));
+            $promotions->whereHas('product',function ($query) {
+                $query->where('category_id','=',Input::get('category'));
+            });
         }
 
         //filter by shop

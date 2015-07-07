@@ -9,7 +9,7 @@
                     <img class="img-responsive" src="http://placehold.it/700x400" alt="">
                 </a>
                 <h4>
-                    <a href="">{{ $category->name }}</a>
+                    <a href="{{ route('promotion.index', array('category' => $category->id)) }}">{{ $category->name }}</a>
                 </h4>
             </div>
             @endforeach
