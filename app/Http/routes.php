@@ -36,3 +36,8 @@ Route::get('/shop/{id}/show', array(
 	'as'    => 'shop.show',
 	'uses'   => 'ShopController@show',
 	));
+
+Route::get('/category', array(
+	'as'    => 'category.index',
+	'uses'   => 'CategoryController@index',
+	));

@@ -58,7 +58,7 @@
                         <a href="{{ route('shop.index') }}">List Shop</a>
                     </li>
                     <li>
-                        <a href="#contact">Category</a>
+                        <a href="{{ route('category.index') }}">Category</a>
                     </li>
                 </ul>
             </div>
