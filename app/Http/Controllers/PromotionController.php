@@ -37,7 +37,7 @@ class PromotionController extends Controller
             $promotions->where('shop_id','=',Input::get('shop'));
         }
 
-        $promotions = $promotions->get();
+        $promotions = $promotions->paginate(15);
        // dd( $promotions);
 
         return view('promotion.index',compact('promotions'));

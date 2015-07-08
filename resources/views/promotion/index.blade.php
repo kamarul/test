@@ -1,4 +1,5 @@
 @extends('layout')
+
 @section('content')
 
     <!-- Product Row -->
@@ -22,5 +23,11 @@
             @endforeach
         </div>
 
-    
+<div class="scroll">
+    <h3>Page 1</h3>
+    <p>Content here...</p>
+    <a href="{{ route('promotion.index') }}">next page</a>
+</div>
+
 @endsection
+
