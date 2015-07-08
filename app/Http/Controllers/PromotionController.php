@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Input;
+
 use App\Promotion;
 
 class PromotionController extends Controller
@@ -19,7 +21,21 @@ class PromotionController extends Controller
     public function index()
     {   
         $today = date('Y-m-d');
-        $promotions = Promotion::with('Product','Shop')->where('start','<=',$today)->where('end','>=',$today)->get();
+        $promotions = Promotion::with('Product','Shop')->where('start','<=',$today)->where('end','>=',$today);
+
+        //filter by category
+        if (Input::has('category')) {
+            $promotions->whereHas('product',function ($query) {
+                $query->where('category_id','=',Input::get('category'));
+            });
+        }
+
+        //filter by shop
+        if (Input::has('shop')) {
+            $promotions->where('shop_id','=',Input::get('shop'));
+        }
+
+        $promotions = $promotions->get();
 
         return view('promotion.index',compact('promotions'));
     }

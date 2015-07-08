@@ -51,14 +51,14 @@
                     <li>
                         <a href="{{ route('promotion.index') }}">Hot Deal</a>
                     </li>
-                    <li>
+                   <!--  <li>
                         <a href="#services">My Favorite</a>
+                    </li> -->
+                    <li>
+                        <a href="{{ route('shop.index') }}">List Shop</a>
                     </li>
                     <li>
-                        <a href="#contact">List Shop</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Category</a>
+                        <a href="{{ route('category.index') }}">Category</a>
                     </li>
                 </ul>
             </div>
