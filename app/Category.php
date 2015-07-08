@@ -9,7 +9,7 @@ class Category extends Model
     protected $table = "category";
 
     //polymorphic
-    public function photos() {
-    	return $this->morphMany('Photo','imageable');
+    public function photo() {
+    	return $this->morphMany('App\Photo','imageable');
     }
 }

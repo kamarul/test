@@ -18,7 +18,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::with('Photo')->get();
         return view('category.index',compact('categories'));
     }
 

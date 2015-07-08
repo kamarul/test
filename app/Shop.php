@@ -9,7 +9,7 @@ class Shop extends Model
     protected $table = "shops";
 
     //polymorphic
-    public function photos() {
-    	return $this->morphMany('Photo','imageable');
+    public function photo() {
+    	return $this->morphMany('App\Photo','imageable');
     }
 }

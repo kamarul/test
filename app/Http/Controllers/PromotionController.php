@@ -21,7 +21,9 @@ class PromotionController extends Controller
     public function index()
     {   
         $today = date('Y-m-d');
-        $promotions = Promotion::with('Product','Shop')->where('start','<=',$today)->where('end','>=',$today);
+        $promotions = Promotion::with(['Product.Photo' => function ($query) {
+            return $query->where('dimension','=','400x700')->get();
+        }])->with('Shop')->where('start','<=',$today)->where('end','>=',$today);
 
         //filter by category
         if (Input::has('category')) {
@@ -36,6 +38,7 @@ class PromotionController extends Controller
         }
 
         $promotions = $promotions->get();
+       // dd( $promotions);
 
         return view('promotion.index',compact('promotions'));
     }

@@ -18,7 +18,9 @@ class ShopController extends Controller
      */
     public function index()
     {
-        $shops = Shop::all();
+        $shops = Shop::with(['Photo' => function ($query) {
+            $query->where('dimension','=','200x300')->get();
+        }])->get();
         return view('shop.index',compact('shops'));
     }
 
