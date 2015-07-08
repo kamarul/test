@@ -54,7 +54,7 @@ class PromotionController extends Controller
     {
         $today = date('Y-m-d');
         $promotion = Promotion::with('Product','Shop')->find($id);
-        $samepromo = Promotion::with('Shop')->where('start','<=',$today)->where('end','>=',$today)->get();
+        $samepromo = Promotion::with('Shop')->where('product_id','=',$promotion->product_id)->where('id','!=',$id)->where('start','<=',$today)->where('end','>=',$today)->get();
 
         return view('promotion.show',compact('promotion','samepromo'));
     }

@@ -73,6 +73,8 @@ class BasicDataSeeder extends Seeder
             ['start' => $startDate,'end' => $endDate,'price_promo'=>31.30,'price_normal'=>44.90,'saving'=>13.66,'product_id' => 1,'shop_id' => 1],
             ['start' => $startDate,'end' => $endDate,'price_promo'=>31.30,'price_normal'=>44.90,'saving'=>13.66,'product_id' => 2,'shop_id' => 2],
             ['start' => $startDate,'end' => $endDate,'price_promo'=>31.30,'price_normal'=>44.90,'saving'=>13.66,'product_id' => 3,'shop_id' => 1],
+            ['start' => $startDate,'end' => $endDate,'price_promo'=>40.30,'price_normal'=>43.30,'saving'=>3.66,'product_id' => 3,'shop_id' => 2],
+            ['start' => $startDate,'end' => $endDate,'price_promo'=>35.30,'price_normal'=>45.30,'saving'=>10.00,'product_id' => 3,'shop_id' => 3],
         ];
         DB::table('promotions')->insert($promotions);
 

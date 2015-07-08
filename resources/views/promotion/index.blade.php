@@ -11,7 +11,8 @@
                 <h4>
                     <a href="{{ route('promotion.show',$promotion->id) }}">{{ $promotion->Product->name }}</a>
                 </h4>
-                <p><del>RM {{ $promotion->price_normal }}</del><br>RM {{ $promotion->price_promo }}
+                <p>{{ $promotion->Shop->name }}</p>
+                <p>RM {{ $promotion->price_promo }} &nbsp; <del>RM {{ $promotion->price_normal }}</del>
                 &nbsp;&nbsp;<small>*Saving RM {{ $promotion->saving }}</small></p>
             </div>
             @endforeach
