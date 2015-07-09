@@ -1,8 +1,4 @@
-@extends('layout')
-
-@section('content')
-
-    <!-- Product Row -->
+<!-- Product Row -->
         <div class="row">
             @foreach( $promotions as $promotion)
             <div class="col-md-3 portfolio-item">
@@ -29,5 +25,4 @@
     <a href="{{ route('api.promotion.listpromotion') }}"></a>
 </div>
 
-@endsection
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\promoshop\Repositories\Promotion\PromotionRepositoryInterface;
 
 use Input;
 
@@ -13,6 +14,11 @@ use App\Promotion;
 
 class PromotionController extends Controller
 {
+
+    public function __construct(PromotionRepositoryInterface $promotion) {
+        $this->promotion = $promotion;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,26 +26,17 @@ class PromotionController extends Controller
      */
     public function index()
     {   
-        $today = date('Y-m-d');
-        $promotions = Promotion::with(['Product.Photo' => function ($query) {
-            return $query->where('dimension','=','400x700')->get();
-        }])->with('Shop')->where('start','<=',$today)->where('end','>=',$today);
+        
 
-        //filter by category
-        if (Input::has('category')) {
-            $promotions->whereHas('product',function ($query) {
-                $query->where('category_id','=',Input::get('category'));
-            });
-        }
+        
 
-        //filter by shop
-        if (Input::has('shop')) {
-            $promotions->where('shop_id','=',Input::get('shop'));
-        }
-
-        $promotions = $promotions->paginate(15);
+        
        // dd( $promotions);
+        $shopId = Input::get('shop');
+        $categoryId = Input::get('category');
 
+        $promotions = $this->promotion->listPromotion($shopId,$categoryId);
+        //dd($promotions);
         return view('promotion.index',compact('promotions'));
     }
 

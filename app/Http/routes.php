@@ -41,3 +41,10 @@ Route::get('/category', array(
 	'as'    => 'category.index',
 	'uses'   => 'CategoryController@index',
 	));
+
+
+//API
+Route::get('/api/promotion/list', array(
+	'as'    => 'api.promotion.list',
+	'uses'   => 'Api\ApiPromotionController@list',
+	));
