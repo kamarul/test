@@ -75,20 +75,14 @@
        </div>
     </div>
 
-
     <!-- jQuery -->
     <script src="{{ asset("bootstrap_themeiron/js/jquery.js") }}"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset("bootstrap_themeiron/js/bootstrap.min.js") }}"></script>
 
-
-<!-- Jquery JScroll Master plugin -->
-<script src="{{ asset("plugin/jscroll-master/jquery.jscroll.js") }}"></script>
-
-<script type="text/javascript">
-    $('.scroll').jscroll();
-</script>
+    @section('script')
+    @show
 
 </body>
 

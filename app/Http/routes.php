@@ -44,7 +44,7 @@ Route::get('/category', array(
 
 
 //API
-Route::get('/api/promotion/list', array(
-	'as'    => 'api.promotion.list',
-	'uses'   => 'Api\ApiPromotionController@list',
+Route::get('/api/promotion/listpromotion', array(
+	'as'    => 'api.promotion.listpromotion',
+	'uses'   => 'Api\ApiPromotionController@listpromotion',
 	));

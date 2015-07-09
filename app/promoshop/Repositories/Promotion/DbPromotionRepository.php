@@ -23,7 +23,7 @@ class DbPromotionRepository implements PromotionRepositoryInterface {
             $promotions->where('shop_id','=',$shopId);
         }
 
-        return $promotions = $promotions->paginate(15);
+        return $promotions = $promotions->paginate(20);
 	}
 
 }

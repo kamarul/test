@@ -26,18 +26,8 @@ class PromotionController extends Controller
      */
     public function index()
     {   
-        
-
-        
-
-        
-       // dd( $promotions);
-        $shopId = Input::get('shop');
-        $categoryId = Input::get('category');
-
-        $promotions = $this->promotion->listPromotion($shopId,$categoryId);
-        //dd($promotions);
-        return view('promotion.index',compact('promotions'));
+        $param = Input::all();
+        return view('promotion.index',compact('param'));
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ use Input;
 
 use App\Promotion;
 
-class PromotionController extends Controller
+class ApiPromotionController extends Controller
 {
 
     public function __construct(PromotionRepositoryInterface $promotion) {
@@ -24,14 +24,16 @@ class PromotionController extends Controller
      *
      * @return Response
      */
-    public function list()
+    public function listpromotion()
     {   
+        
         $shopId = Input::get('shop');
         $categoryId = Input::get('category');
 
         $promotions = $this->promotion->listPromotion($shopId,$categoryId);
-        
-        return view('promotion.listpromotion',compact('promotions'));
+        $nextUrl =$promotions->appends(Input::all())->nextPageUrl();
+
+        return view('promotion.listpromotion',compact('promotions','nextUrl'));
     }
 
     

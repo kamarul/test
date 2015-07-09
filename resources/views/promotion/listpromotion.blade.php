@@ -1,5 +1,5 @@
 <!-- Product Row -->
-        <div class="row">
+
             @foreach( $promotions as $promotion)
             <div class="col-md-3 portfolio-item">
                 <a href="#">
@@ -17,12 +17,7 @@
                 &nbsp;&nbsp;<small>*Saving RM {{ $promotion->saving }}</small></p>
             </div>
             @endforeach
-        </div>
+<a href="{{ $nextUrl }}"></a>
 
-<div class="scroll">
-    <h3>Page 1</h3>
-    <p>Content here...</p>
-    <a href="{{ route('api.promotion.listpromotion') }}"></a>
-</div>
 
 
