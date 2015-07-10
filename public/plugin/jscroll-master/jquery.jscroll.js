@@ -96,9 +96,10 @@
                     innerTop = $inner.length ? $inner.offset().top : 0,
                     iTotalHeight = Math.ceil(iTopHeight - innerTop + _$scroll.height() + iContainerTop);
 
-                if (!data.waiting && iTotalHeight + _options.padding >= $inner.outerHeight()) {
+                if (!data.waiting && iTotalHeight + _options.padding  + 100  >= $(document).height()) {
                     //data.nextHref = $.trim(data.nextHref + ' ' + _options.contentSelector);
-                    _debug('info', 'jScroll:', $inner.outerHeight() - iTotalHeight, 'from bottom. Loading next request...');
+                     //_debug('info', 'jScroll:', $(document).height() - iTotalHeight, 'from bottom. Loading next request...');
+                   // alert('a02');
                     return _load();
                 }
             },
@@ -118,9 +119,17 @@
 
             _setBindings = function() {
                 var $next = $e.find(_options.nextSelector).first();
+
                 if (!$next.length) {
                     return;
                 }
+
+                var totalPage = $next.attr('data-totalPage');
+
+                if (typeof totalPage !== typeof undefined && totalPage !== false) {
+                    _options.autoTriggerUntil = totalPage;
+                }
+
                 if (_options.autoTrigger && (_options.autoTriggerUntil === false || _options.autoTriggerUntil > 0)) {
                     _nextWrap($next);
                     if (_$body.height() <= _$window.height()) {
@@ -136,6 +145,7 @@
                     _$scroll.unbind('.jscroll');
                     $next.bind('click.jscroll', function() {
                         _nextWrap($next);
+                        alert('139');
                         _load();
                         return false;
                     });

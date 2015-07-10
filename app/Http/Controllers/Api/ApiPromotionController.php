@@ -32,8 +32,9 @@ class ApiPromotionController extends Controller
 
         $promotions = $this->promotion->listPromotion($shopId,$categoryId);
         $nextUrl =$promotions->appends(Input::all())->nextPageUrl();
+        $totalPage =$promotions->lastPage();
 
-        return view('promotion.listpromotion',compact('promotions','nextUrl'));
+        return view('promotion.listpromotion',compact('promotions','nextUrl','totalPage'));
     }
 
     

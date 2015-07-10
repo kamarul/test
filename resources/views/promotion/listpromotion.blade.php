@@ -17,7 +17,5 @@
                 &nbsp;&nbsp;<small>*Saving RM {{ $promotion->saving }}</small></p>
             </div>
             @endforeach
-<a href="{{ $nextUrl }}"></a>
 
-
-
+<a href="{{ $nextUrl }}" data-totalPage="{{ $totalPage }}"></a>
