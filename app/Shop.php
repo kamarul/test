@@ -12,4 +12,9 @@ class Shop extends Model
     public function photo() {
     	return $this->morphMany('App\Photo','imageable');
     }
+
+    //hasmany
+    public function promotion() {
+    	return $this->hasmany('App\Promotion');
+    }
 }

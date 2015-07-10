@@ -48,3 +48,8 @@ Route::get('/api/promotion/listpromotion', array(
 	'as'    => 'api.promotion.listpromotion',
 	'uses'   => 'Api\ApiPromotionController@listpromotion',
 	));
+
+//Admin
+Route::get('/admin', function(){
+	return view('admin.home');
+});

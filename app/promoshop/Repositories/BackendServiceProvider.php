@@ -11,5 +11,8 @@ class BackendServiceProvider extends ServiceProvider {
 
 		//promotion
 		$this->app->bind('App\promoshop\Repositories\Promotion\PromotionRepositoryInterface', 'App\promoshop\Repositories\Promotion\DbPromotionRepository');
+
+		//shop
+		$this->app->bind('App\promoshop\Repositories\Shop\ShopRepositoryInterface', 'App\promoshop\Repositories\Shop\DbShopRepository');
 	}
 }

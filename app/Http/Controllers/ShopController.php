@@ -6,11 +6,17 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\promoshop\Repositories\Shop\ShopRepositoryInterface;
 
 use App\Shop;
 
 class ShopController extends Controller
 {
+
+    public function __construct(ShopRepositoryInterface $shop) {
+        $this->shop = $shop;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,9 +24,7 @@ class ShopController extends Controller
      */
     public function index()
     {
-        $shops = Shop::with(['Photo' => function ($query) {
-            $query->where('dimension','=','200x300')->get();
-        }])->get();
+        $shops = $this->shop->listShop();
         return view('shop.index',compact('shops'));
     }
 
