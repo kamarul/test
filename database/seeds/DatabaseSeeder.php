@@ -99,7 +99,7 @@ class BasicDataSeeder extends Seeder
 
             DB::table('photos')->insert($photos);
 
-        for ($i=0; $i < 10000; $i++) { 
+        for ($i=0; $i < 1; $i++) { 
             
         
            

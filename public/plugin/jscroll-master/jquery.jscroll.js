@@ -130,7 +130,7 @@
                     _options.autoTriggerUntil = totalPage;
                 }
 
-                if (_options.autoTrigger && (_options.autoTriggerUntil === false || _options.autoTriggerUntil > 0)) {
+                if (_options.autoTrigger && (_options.autoTriggerUntil === false || _options.autoTriggerUntil > 1)) {
                     _nextWrap($next);
                     if (_$body.height() <= _$window.height()) {
                         _observe();
@@ -138,7 +138,7 @@
                     _$scroll.unbind('.jscroll').bind('scroll.jscroll', function() {
                         return _observe();
                     });
-                    if (_options.autoTriggerUntil > 0) {
+                    if (_options.autoTriggerUntil > 1) {
                         _options.autoTriggerUntil--;
                     }
                 } else {
