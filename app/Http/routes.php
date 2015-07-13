@@ -43,6 +43,15 @@ Route::get('/category', array(
 	));
 
 
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+
 //API
 Route::get('/api/promotion/listpromotion', array(
 	'as'    => 'api.promotion.listpromotion',
@@ -50,6 +59,7 @@ Route::get('/api/promotion/listpromotion', array(
 	));
 
 //Admin
-Route::get('/admin', function(){
-	return view('admin.home');
-});
+Route::get('/admin', array( 
+	'middleware' => 'auth' ,
+	'uses'  =>  'Admin\PromotionController@index'
+	));
