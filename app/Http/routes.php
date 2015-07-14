@@ -60,6 +60,7 @@ Route::get('/api/promotion/listpromotion', array(
 
 //Admin
 Route::get('/admin', array( 
+	'as' => 'admin.promotion.index' ,
 	'middleware' => 'auth' ,
 	'uses'  =>  'Admin\PromotionController@index'
 	));
