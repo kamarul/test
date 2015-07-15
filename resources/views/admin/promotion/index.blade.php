@@ -1,114 +1,49 @@
-	@extends('admin.layout')
+  @extends('admin.layout')
 
-	@section('content')
-	<!-- /.panel-heading -->
-	<div class="panel-body">
-		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">Promotion</h1>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						DataTables Advanced Tables
-					</div>
-					<!-- /.panel-heading -->
-					<div class="panel-body">
-						<div class="dataTable_wrapper">
-							<div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="dataTables_length" id="dataTables-example_length">
-											<label>Show 
-											<select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm">
-												<option value="10">10</option>
-												<option value="25">25</option>
-												<option value="50">50</option>
-												<option value="100">100</option>
-											</select> entries
-										</label>
-									</div>
-								</div>
-								<div class="col-sm-6">
-									<div id="dataTables-example_filter" class="dataTables_filter">
-										<label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="dataTables-example"></label>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-12">
-									<table id="dataTables-example" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="dataTables-example_info">
-										<thead>
-											<tr role="row">
-												<th rowspan="2">#</th>
-												<th rowspan="2" class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 171px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
-												Product</th>
-												<th rowspan="2" class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 206px;" aria-label="Browser: activate to sort column ascending">
-												Start</th>
-												<th rowspan="2" class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 187px;" aria-label="Platform(s): activate to sort column ascending">
-												End</th>
-												<th colspan="3"  aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 148px;" aria-label="Engine version: activate to sort column ascending">
-												Price (RM)</th>
-											</tr>
-												<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 148px;" aria-label="Engine version: activate to sort column ascending">
-												Promo</th>
-												<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 108px;" aria-label="CSS grade: activate to sort column ascending">
-												Normal</th>
-												<th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 108px;" aria-label="CSS grade: activate to sort column ascending">
-												Saving</th>
-											<tr>
-											</tr>
-										</thead>
-										<tbody>
-											@foreach ($promotions as $promotion )
-											<tr class="gradeA odd" role="row">
-												<td class="sorting_1">1</td>
-												<td>{{ $promotion->Product->name }}</td>
-												<td>{{ $promotion->start }}</td>
-												<td class="center">{{ $promotion->end }}</td>
-												<td class="center">{{ $promotion->price_promo }}</td>
-												<td class="center">{{ $promotion->price_normal }}</td>
-												<td class="center">{{ $promotion->saving }}</td>
-											</tr>
-											@endforeach
-											</tbody>
-										</table>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
-											<ul class="pagination">
-												<li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous"><a href="#">Previous</a></li><li class="paginate_button active" aria-controls="dataTables-example" tabindex="0">
-												<a href="#">1</a>
-											</li>
-											<li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-												<a href="#">2</a>
-											</li>
-											<li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">3</a></li>
-											<li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">4</a></li>
-											<li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">5</a></li>
-											<li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">6</a></li>
-											<li class="paginate_button next" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next"><a href="#">Next</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+  @section('content')
+ <div class="row">
+            <div class="col-xs-12">
+         
+              
 
-				</div>
-				<!-- /.panel-body -->
-			</div>
-			<!-- /.panel -->
-		</div>
-		<!-- /.col-lg-12 -->
-	</div>
-</div>
-<!-- /.panel-body -->
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Data Table With Full Features</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"><div class="dataTables_length" id="example1_length"><label>Show <select name="example1_length" aria-controls="example1" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-6"><div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div></div></div><div class="row"><div class="col-sm-12"><table class="table table-bordered table-striped dataTable" id="example1" role="grid" aria-describedby="example1_info">
+                    <thead>
+                      <tr role="row">
+                        <th>#</th>
+                        <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 180px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Product</th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 229px;" aria-label="Browser: activate to sort column ascending">Star</th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 194px;" aria-label="Platform(s): activate to sort column ascending">End</th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 154px;" aria-label="Engine version: activate to sort column ascending">Promo Price</th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 111px;" aria-label="CSS grade: activate to sort column ascending">Normal Price</th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 111px;" aria-label="CSS grade: activate to sort column ascending">Saving</th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 111px;" aria-label="CSS grade: activate to sort column ascending">Action</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    @foreach ($promotions as $promotion )
+                      <tr class="gradeA odd" role="row">
+                        <td class="sorting_1">1</td>
+                        <td>{{ $promotion->Product->name }}</td>
+                        <td>{{ $promotion->start }}</td>
+                        <td class="center">{{ $promotion->end }}</td>
+                        <td class="center">{{ $promotion->price_promo }}</td>
+                        <td class="center">{{ $promotion->price_normal }}</td>
+                        <td class="center">{{ $promotion->saving }}</td>
+                        <td></td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                   
+                  </table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">2</a></li><li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0">3</a></li><li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0">4</a></li><li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0">5</a></li><li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0">6</a></li><li class="paginate_button next" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0">Next</a></li></ul></div></div></div></div>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
+          </div>
 @endsection
