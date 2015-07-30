@@ -1,116 +1,114 @@
   @extends('admin.layout')
 
-  @section('pageheader')
-  <h1>
-    {{ $page_title or "Promotion" }}
-    <small>{{ $page_description or null }}</small>
-  </h1>
-  <!-- You can dynamically generate breadcrumbs here -->
-  <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Promotion</a></li>
-    <!-- <li class="active">Here</li> -->
-  </ol>
-  @endsection
+
 
   @section('content')
-  <div class="row">
-    <div class="col-xs-12">
 
-
-
-      <div class="box">
-        <div class="box-header">
-          <h3 class="box-title">List All Promotion</h3>
-        </div><!-- /.box-header -->
-        <div class="box-body">
-          <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+    <div class="page-header">
+      <div class="container-fluid">
+        <div class="pull-right">
+          <a href="{{ route('admin.promotion.create') }}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Add New"><i class="fa fa-plus"></i></a>
+          <!-- <button type="submit" form="form-product" formaction="http://www.licelotion.com/admin/index.php?route=catalog/product/copy&amp;token=f4e5734f5c8bc1923dcffb0e8ff714e4" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Copy"><i class="fa fa-copy"></i></button> -->
+          <button type="button" data-toggle="tooltip" title="" class="btn btn-danger" onclick="confirm('Are you sure?') ? $('#form-product').submit() : false;" data-original-title="Delete"><i class="fa fa-trash-o"></i></button>
+        </div>
+        <h1>Products</h1>
+        <ul class="breadcrumb">
+          <li><a href="http://www.licelotion.com/admin/index.php?route=common/dashboard&amp;token=f4e5734f5c8bc1923dcffb0e8ff714e4">Home</a></li>
+          <li><a href="http://www.licelotion.com/admin/index.php?route=catalog/product&amp;token=f4e5734f5c8bc1923dcffb0e8ff714e4">Products</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="fa fa-list"></i> Product List</h3>
+        </div>
+        <div class="panel-body">
+          <div class="well">
             <div class="row">
-              <div class="col-sm-6">
-                <div class="dataTables_length" id="example1_length">
-                  <label>Show <select name="example1_length" aria-controls="example1" class="form-control input-sm">
-                    <option value="10">10</option>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                  </select> entries</label>
-                  </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label class="control-label" for="input-name">Product Name</label>
+                  <input type="text" name="filter_name" value="" placeholder="Product Name" id="input-name" class="form-control" autocomplete="off"><ul class="dropdown-menu"></ul>
                 </div>
-                <div class="col-sm-6">
-                  <div id="example1_filter" class="dataTables_filter pull-right">
-                    <label>Search&nbsp;:&nbsp;<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label>
-                  </div>
+                <div class="form-group">
+                  <label class="control-label" for="input-model">Model</label>
+                  <input type="text" name="filter_model" value="" placeholder="Model" id="input-model" class="form-control" autocomplete="off"><ul class="dropdown-menu"></ul>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-sm-12">
-                  <table class="table table-bordered table-striped dataTable" id="example1" role="grid" aria-describedby="example1_info">
-                    <thead>
-                      <tr role="row">
-                        <th>#</th>
-                        <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 180px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Product</th>
-                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 229px;" aria-label="Browser: activate to sort column ascending">Star</th>
-                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 194px;" aria-label="Platform(s): activate to sort column ascending">End</th>
-                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 154px;" aria-label="Engine version: activate to sort column ascending">Promo Price</th>
-                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 111px;" aria-label="CSS grade: activate to sort column ascending">Normal Price</th>
-                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 111px;" aria-label="CSS grade: activate to sort column ascending">Saving</th>
-                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 111px;" aria-label="CSS grade: activate to sort column ascending">Action</th>
-
-                      </tr>
-                    </thead>
-                    <tbody>
-
-                      @foreach ($promotions as $promotion )
-                      <tr class="gradeA odd" role="row">
-                        <td class="sorting_1">1</td>
-                        <td>{{ $promotion->Product->name }}</td>
-                        <td>{{ $promotion->start }}</td>
-                        <td class="center">{{ $promotion->end }}</td>
-                        <td class="center">{{ $promotion->price_promo }}</td>
-                        <td class="center">{{ $promotion->price_normal }}</td>
-                        <td class="center">{{ $promotion->saving }}</td>
-                        <td></td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-
-                  </table>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label class="control-label" for="input-price">Price</label>
+                  <input type="text" name="filter_price" value="" placeholder="Price" id="input-price" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="input-quantity">Quantity</label>
+                  <input type="text" name="filter_quantity" value="" placeholder="Quantity" id="input-quantity" class="form-control">
                 </div>
               </div>
-              <div class="row">
-                <div class="col-sm-5">
-                  <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label class="control-label" for="input-status">Status</label>
+                  <select name="filter_status" id="input-status" class="form-control">
+                    <option value="*"></option>
+                    <option value="1">Enabled</option>
+                    <option value="0">Disabled</option>
+                  </select>
                 </div>
-                <div class="col-sm-7">
-                  <div class="dataTables_paginate paging_simple_numbers pull-right" id="example1_paginate">
-                    <ul class="pagination">
-                      <li class="paginate_button previous disabled" id="example1_previous">
-                        <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a>
-                      </li>
-                      <li class="paginate_button active">
-                        <a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a>
-                      </li>
-                      <li class="paginate_button ">
-                        <a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">2</a>
-                      </li>
-                      <li class="paginate_button ">
-                        <a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0">3</a>
-                      </li><li class="paginate_button ">
-                      <a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0">4</a>
-                    </li><li class="paginate_button ">
-                    <a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0">5</a>
-                  </li>
-                  <li class="paginate_button ">
-                    <a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0">6</a></li>
-                    <li class="paginate_button next" id="example1_next">
-                      <a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0">Next</a>
-                    </li>
-                  </ul>
-                </div>
+                <button type="button" id="button-filter" class="btn btn-primary pull-right"><i class="fa fa-search"></i> Filter</button>
               </div>
             </div>
           </div>
-        </div><!-- /.box-body -->
-      </div><!-- /.box -->
-    </div><!-- /.col -->
-  </div>
+          <form action="http://www.licelotion.com/admin/index.php?route=catalog/product/delete&amp;token=f4e5734f5c8bc1923dcffb0e8ff714e4" method="post" enctype="multipart/form-data" id="form-product">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);"></td>
+                    <td class="text-center">Image</td>
+                    <td class="text-left"><a href="http://www.licelotion.com/admin/index.php?route=catalog/product&amp;token=f4e5734f5c8bc1923dcffb0e8ff714e4&amp;sort=pd.name&amp;order=DESC" class="asc">Product Name</a>
+                    </td>
+                    <td class="text-left"><a href="http://www.licelotion.com/admin/index.php?route=catalog/product&amp;token=f4e5734f5c8bc1923dcffb0e8ff714e4&amp;sort=p.model&amp;order=DESC">Start</a>
+                    </td>
+                    <td class="text-left"><a href="http://www.licelotion.com/admin/index.php?route=catalog/product&amp;token=f4e5734f5c8bc1923dcffb0e8ff714e4&amp;sort=p.price&amp;order=DESC">End</a>
+                    </td>
+                    <td class="text-right"><a href="http://www.licelotion.com/admin/index.php?route=catalog/product&amp;token=f4e5734f5c8bc1923dcffb0e8ff714e4&amp;sort=p.quantity&amp;order=DESC">Normal Price</a>
+                    </td>
+                    <td class="text-right"><a href="http://www.licelotion.com/admin/index.php?route=catalog/product&amp;token=f4e5734f5c8bc1923dcffb0e8ff714e4&amp;sort=p.status&amp;order=DESC">Promotion Price</a>
+                    </td>
+                                      <td class="text-right"><a href="http://www.licelotion.com/admin/index.php?route=catalog/product&amp;token=f4e5734f5c8bc1923dcffb0e8ff714e4&amp;sort=p.status&amp;order=DESC">Total Saving</a>
+                                      </td>
+                    <td class="text-right">Action</td>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  @foreach($promotions as $promotion)
+                  <tr>
+                    <td class="text-center"><input type="checkbox" name="selected[]" value="50">
+                    </td>
+                    <td class="text-center"><img src="http://www.licelotion.com/image/cache/catalog/licelotion-40x40.png" alt="Lice Lotion 100ml" class="img-thumbnail">
+                    </td>
+                    <td>{{ $promotion->Product->name }}</td>
+                        <td>{{ $promotion->start }}</td>
+                        <td class="text-left">{{ $promotion->end }}</td>
+                        <td class="text-right">{{ $promotion->price_promo }}</td>
+                        <td class="text-right">{{ $promotion->price_normal }}</td>
+                        <td class="text-right">{{ $promotion->saving }}</td>
+                    
+                    <td class="text-right"><a href="http://www.licelotion.com/admin/index.php?route=catalog/product/edit&amp;token=f4e5734f5c8bc1923dcffb0e8ff714e4&amp;product_id=50" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Edit"><i class="fa fa-pencil"></i></a></td>
+                  </tr>
+                  @endforeach
+
+                </tbody>
+              </table>
+            </div>
+          </form>
+          <div class="row">
+            <div class="col-sm-6 text-left"></div>
+            <div class="col-sm-6 text-right">Showing 1 to 2 of 2 (1 Pages)</div>
+          </div>
+        </div>
+      </div>
+    </div>
   @endsection

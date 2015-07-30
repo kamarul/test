@@ -22,6 +22,11 @@ Route::get('/', array(
 	'uses'   => 'PromotionController@index',
 	));
 
+Route::get('/admin/promotion/create', array(
+	'as'    => 'admin.promotion.create',
+	'uses'   => 'PromotionController@create',
+	));
+
 Route::get('/promotion/{id}/show', array(
 	'as'    => 'promotion.show',
 	'uses'   => 'PromotionController@show',
